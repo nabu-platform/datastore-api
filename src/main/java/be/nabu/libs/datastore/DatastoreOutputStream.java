@@ -1,5 +1,6 @@
 package be.nabu.libs.datastore;
 
+import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
@@ -13,7 +14,7 @@ public class DatastoreOutputStream extends OutputStream {
 
 	public DatastoreOutputStream(URIProvider uriProvider, OutputStream parent) {
 		this.uriProvider = uriProvider;
-		this.parent = parent;
+		this.parent = new BufferedOutputStream(parent);
 	}
 	public DatastoreOutputStream(final URI uri, OutputStream parent) {
 		this.parent = parent;
