@@ -4,7 +4,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 
+import javax.jws.WebParam;
+import javax.jws.WebResult;
+
 public interface Datastore {
-	public InputStream retrieve(URI uri) throws IOException;
-	public DataProperties getProperties(URI uri) throws IOException;
+	@WebResult(name = "stream")
+	public InputStream retrieve(@WebParam(name = "uri") URI uri) throws IOException;
+	
+	@WebResult(name = "properties")
+	public DataProperties getProperties(@WebParam(name = "uri") URI uri) throws IOException;
 }
