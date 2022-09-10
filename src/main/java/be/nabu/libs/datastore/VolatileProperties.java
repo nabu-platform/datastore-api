@@ -17,9 +17,9 @@ public class VolatileProperties implements DataProperties {
 	}
 	
 	@Override
-	public long getSize() {
+	public Long getSize() {
 		byte [] data = memoryDatastore.data.get(uri);
-		return data != null ? data.length : 0;
+		return data != null ? data.length : 0l;
 	}
 
 	@Override
